@@ -1,10 +1,428 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nilesh Choudhary — Academic and Research Profile">
+<title>Nilesh Choudhary | Academic Profile</title>
+
+<style>
+:root{
+  --ink:#172033;
+  --muted:#667085;
+  --paper:#ffffff;
+  --soft:#f5f7fa;
+  --line:#e5e7eb;
+  --accent:#1769aa;
+  --accent2:#0f4c81;
+  --max:1120px;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(var(--max),92%);margin:auto}
+
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  min-height:68px;display:flex;align-items:center;justify-content:space-between;
+  gap:20px;
+}
+.brand{font-weight:750;font-size:1.05rem;letter-spacing:.1px}
+.navlinks{display:flex;gap:24px;align-items:center}
+.navlinks a{font-size:.93rem;color:#344054}
+.navlinks a:hover{color:var(--accent);text-decoration:none}
+.menu{display:none;border:0;background:none;font-size:1.5rem;cursor:pointer}
+
+.hero{
+  background:linear-gradient(180deg,#f7f9fc 0%,#fff 100%);
+  padding:90px 0 80px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.4fr .6fr;gap:65px;align-items:center;
+}
+.kicker{
+  color:var(--accent);font-size:.86rem;font-weight:750;
+  letter-spacing:.11em;text-transform:uppercase;
+}
+h1{
+  font-size:clamp(2.5rem,6vw,4.6rem);
+  line-height:1.05;margin:12px 0 20px;letter-spacing:-.045em;
+}
+.hero h2{font-size:1.25rem;font-weight:500;color:#475467;margin:0 0 20px}
+.hero p{max-width:720px;color:#596579;font-size:1.05rem}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  display:inline-block;padding:11px 18px;border-radius:10px;
+  border:1px solid #d0d5dd;font-weight:650;font-size:.92rem;
+}
+.btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.photo{
+  width:240px;height:240px;border-radius:50%;
+  margin:auto;background:#e9eef5;border:8px solid white;
+  box-shadow:0 15px 45px rgba(16,24,40,.12);
+  display:flex;align-items:center;justify-content:center;
+  color:#8a95a5;text-align:center;padding:25px;
+}
+
+section{padding:82px 0;border-bottom:1px solid var(--line)}
+.section-head{margin-bottom:34px}
+.eyebrow{
+  color:var(--accent);font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.12em;font-weight:750;
+}
+h2{font-size:2rem;line-height:1.2;margin:7px 0}
+.lead{color:var(--muted);max-width:760px}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:25px;background:white;
+}
+.card h3{margin-top:0}
+.muted{color:var(--muted)}
+
+.research-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.research-card{
+  padding:25px;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(180deg,#fff,#fafbfc);
+}
+.number{font-size:.8rem;color:var(--accent);font-weight:800}
+.research-card h3{margin:9px 0 8px}
+
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:32px;
+}
+.stat{padding:25px;border:1px solid var(--line);border-radius:14px;text-align:center}
+.stat strong{display:block;font-size:2rem}
+.stat span{color:var(--muted);font-size:.9rem}
+
+.list{display:grid;gap:15px}
+.item{
+  padding:20px 0;border-bottom:1px solid var(--line);
+}
+.item:last-child{border-bottom:0}
+.item-title{font-weight:700;font-size:1.04rem}
+.meta{font-size:.88rem;color:var(--muted);margin-top:3px}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:45px}
+ul.clean{padding-left:19px;margin-top:10px}
+ul.clean li{margin:8px 0}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-box{
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:23px;
+}
+.contact-box strong{display:block;margin-bottom:4px}
+
+footer{padding:35px 0;color:var(--muted);font-size:.88rem}
+footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:800px){
+  .menu{display:block}
+  .navlinks{
+    display:none;position:absolute;left:0;right:0;top:68px;
+    background:white;border-bottom:1px solid var(--line);
+    padding:16px 4%;flex-direction:column;align-items:flex-start;
+  }
+  .navlinks.open{display:flex}
+  .hero-grid,.about-grid,.two-col,.contact-grid{grid-template-columns:1fr}
+  .hero{padding:65px 0}
+  .hero-grid{gap:35px}
+  .photo{width:190px;height:190px}
+  .research-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:450px){
+  .stats{grid-template-columns:1fr 1fr}
+  section{padding:60px 0}
+}
+</style>
 </head>
+
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This website is hosted using GitHub Pages.</p>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">Nilesh Choudhary</a>
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    <nav class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Academic · Research · Education</div>
+      <h1>Nilesh Choudhary</h1>
+      <h2>Professor / Researcher · Chemical Engineering</h2>
+      <p>
+        Welcome to my academic website. I work on research, teaching and
+        development of engineering knowledge, with an emphasis on rigorous
+        analysis, modelling and practical applications.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="#research">Research</a>
+        <a class="btn" href="#publications">Publications</a>
+        <a class="btn" href="cv.pdf">Download CV</a>
+      </div>
+    </div>
+
+    <div class="photo">
+      Replace this box with your photograph.<br>
+      <small>Put <b>photo.jpg</b> in the repository and edit the HTML.</small>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">About</div>
+      <h2>Profile</h2>
+      <p class="lead">Replace the text below with your institutional profile, biography and academic positions.</p>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <p>
+          I am an academic and researcher working in Chemical Engineering.
+          My work combines fundamental engineering principles with
+          computational and theoretical approaches to address problems of
+          scientific and technological interest.
+        </p>
+        <p>
+          My academic activities include research, teaching, student
+          supervision, project development and institutional responsibilities.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Current Position</h3>
+        <p><b>Professor / Faculty Member</b></p>
+        <p class="muted">Department / Institute Name<br>India</p>
+        <hr style="border:0;border-top:1px solid var(--line)">
+        <h3>Research Profile</h3>
+        <p class="muted">Chemical Engineering · Thermodynamics · Transport Phenomena · Molecular Simulation · Data/Modelling</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Research</div>
+      <h2>Research Interests</h2>
+      <p class="lead">Edit these cards to match your actual research areas.</p>
+    </div>
+
+    <div class="research-grid">
+      <article class="research-card">
+        <div class="number">01</div>
+        <h3>Thermodynamics</h3>
+        <p class="muted">Phase equilibrium, molecular thermodynamics and statistical-mechanical approaches.</p>
+      </article>
+      <article class="research-card">
+        <div class="number">02</div>
+        <h3>Transport Phenomena</h3>
+        <p class="muted">Heat and mass transfer, fluid flow and interfacial transport processes.</p>
+      </article>
+      <article class="research-card">
+        <div class="number">03</div>
+        <h3>Molecular Simulation</h3>
+        <p class="muted">Molecular dynamics, microscopic structure and computational investigation of complex fluids.</p>
+      </article>
+      <article class="research-card">
+        <div class="number">04</div>
+        <h3>Statistical Mechanics</h3>
+        <p class="muted">Correlation functions, density functional approaches and molecular theories.</p>
+      </article>
+      <article class="research-card">
+        <div class="number">05</div>
+        <h3>Process Engineering</h3>
+        <p class="muted">Modelling, analysis and engineering applications of chemical processes.</p>
+      </article>
+      <article class="research-card">
+        <div class="number">06</div>
+        <h3>Interdisciplinary Research</h3>
+        <p class="muted">Connecting molecular-scale understanding with continuum and engineering models.</p>
+      </article>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><strong>XX+</strong><span>Journal Papers</span></div>
+      <div class="stat"><strong>XX</strong><span>PhD Students</span></div>
+      <div class="stat"><strong>XX</strong><span>Projects</span></div>
+      <div class="stat"><strong>XX+</strong><span>Years Experience</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Research Output</div>
+      <h2>Selected Publications</h2>
+      <p class="lead">Replace these examples with your publications. You can link each title to DOI, journal page or PDF.</p>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <div class="item-title"><a href="#">Publication title goes here</a></div>
+        <div class="meta">Author(s) · Journal Name · 2026 · DOI</div>
+      </div>
+      <div class="item">
+        <div class="item-title"><a href="#">Publication title goes here</a></div>
+        <div class="meta">Author(s) · Journal Name · 2025 · DOI</div>
+      </div>
+      <div class="item">
+        <div class="item-title"><a href="#">Publication title goes here</a></div>
+        <div class="meta">Author(s) · Journal Name · 2024 · DOI</div>
+      </div>
+      <div class="item">
+        <div class="item-title"><a href="#">Publication title goes here</a></div>
+        <div class="meta">Author(s) · Journal Name · 2023 · DOI</div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a class="btn primary" href="#">Google Scholar</a>
+      <a class="btn" href="#">ORCID</a>
+      <a class="btn" href="#">ResearchGate</a>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Teaching</div>
+      <h2>Courses & Academic Activities</h2>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Courses</h3>
+        <ul class="clean">
+          <li>Thermodynamics</li>
+          <li>Heat Transfer</li>
+          <li>Mass Transfer</li>
+          <li>Fluid Mechanics</li>
+          <li>Chemical Engineering Fundamentals</li>
+          <li>Advanced / Graduate Courses</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Student Supervision</h3>
+        <p class="muted">Add your current and former PhD, M.Tech., project and undergraduate students here.</p>
+        <ul class="clean">
+          <li>PhD students</li>
+          <li>M.Tech. / M.E. students</li>
+          <li>Undergraduate projects</li>
+          <li>Research internships</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Projects</div>
+      <h2>Research Projects & Initiatives</h2>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <div class="item-title">Project / Grant Title</div>
+        <div class="meta">Funding Agency · Role · 2026–Present</div>
+        <p class="muted">Short description of the project, objective and expected outcome.</p>
+      </div>
+      <div class="item">
+        <div class="item-title">Project / Grant Title</div>
+        <div class="meta">Funding Agency · Role · 2024–2026</div>
+        <p class="muted">Short description of the project, objective and expected outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Contact</div>
+      <h2>Get in Touch</h2>
+      <p class="lead">For academic collaboration, research enquiries, student supervision or professional communication.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-box">
+        <strong>Email</strong>
+        <a href="mailto:your.email@institute.ac.in">your.email@institute.ac.in</a>
+      </div>
+      <div class="contact-box">
+        <strong>Institution</strong>
+        <span>Department of Chemical Engineering<br>Institute Name, India</span>
+      </div>
+      <div class="contact-box">
+        <strong>Google Scholar</strong>
+        <a href="#">Publication profile →</a>
+      </div>
+      <div class="contact-box">
+        <strong>ORCID</strong>
+        <a href="#">ORCID profile →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Nilesh Choudhary</span>
+    <span>nilesh.github.io</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("navlinks").classList.toggle("open");
+}
+document.querySelectorAll(".navlinks a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    document.getElementById("navlinks").classList.remove("open");
+  });
+});
+</script>
+
 </body>
 </html>
